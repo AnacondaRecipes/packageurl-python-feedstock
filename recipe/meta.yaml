@@ -37,7 +37,6 @@ about:
   home: https://github.com/package-url/packageurl-python
   license: MIT
   license_file: mit.LICENSE
-  #license_url: https://github.com/package-url/packageurl-python/blob/main/mit.LICENSE
   summary: A purl aka. Package URL parser and builder
   description: |
     Python library to parse and build “purl” aka. Package URLs.
