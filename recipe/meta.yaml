@@ -1,0 +1,49 @@
+{% set name = "packageurl-python" %}
+{% set version = "0.17.5" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  url: https://pypi.org/packages/source/p/packageurl-python/packageurl_python-{{ version }}.tar.gz
+  sha256: a7be3f3ba70d705f738ace9bf6124f31920245a49fa69d4b416da7037dd2de61
+
+build:
+  number: 0
+  #noarch: python
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
+
+requirements:
+  host:
+    - python
+    - pip
+    - setuptools
+  run:
+    - python
+
+test:
+  requires:
+    - pip
+    - mypy
+  imports:
+    - packageurl
+    - packageurl.contrib
+  commands:
+    - pip check
+    - mypy -p packageurl --ignore-missing-import
+
+about:
+  home: https://github.com/package-url/packageurl-python
+  license: MIT
+  license_file: mit.LICENSE
+  summary: A purl aka. Package URL parser and builder
+  description: |
+    Python library to parse and build “purl” aka. Package URLs.
+    See https://github.com/package-url/purl-spec for details.
+  doc_url: https://github.com/package-url/purl-spec
+  dev_url: https://github.com/package-url/packageurl-python
+
+extra:
+  recipe-maintainers:
+    - bollwyvl
