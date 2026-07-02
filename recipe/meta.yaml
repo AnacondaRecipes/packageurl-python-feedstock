@@ -39,6 +39,7 @@ test:
 about:
   home: https://github.com/package-url/packageurl-python
   license: MIT
+  license_family: MIT
   license_file: mit.LICENSE
   summary: A purl aka. Package URL parser and builder
   description: |
